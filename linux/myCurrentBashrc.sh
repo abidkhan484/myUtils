@@ -120,7 +120,10 @@ fi
 #############################
 # manually added
 
-PS1='\u@\W$ '
+git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+PS1='\u@\W$(git_branch) '
 
 alias ..="cd .."
 alias gts="git status"
