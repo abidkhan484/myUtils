@@ -1,0 +1,21 @@
+ffmpeg:
+
+1. remove audio
+ ffmpeg -i input_file.mp4 -vcodec copy -an output_file.mp4
+
+
+2. cut video
+ ffmpeg -ss 00:01:20 -to 00:02:00 -i parking_video8.mp4 -c copy parking_video7.mp4
+
+
+3. video to image
+ ffmpeg -i parking_video8.mp4 -r 1 -f image2 image-%3d.jpeg
+
+
+
+mkvmerge:
+
+1. merge multiple videos
+ mkvmerge -o presentation.mp4 video1.webm +video2.webm
+
+
