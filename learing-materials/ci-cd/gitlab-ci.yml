@@ -1,0 +1,24 @@
+image: ubuntu
+
+before_script:
+  - apt-get update -qq
+  - apt-get install -qq git
+  # Setup SSH deploy keys
+  - 'which ssh-agent || ( apt-get install -qq openssh-client )'
+  - eval $(ssh-agent -s)
+  - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+  - mkdir -p ~/.ssh
+  - chmod 700 ~/.ssh
+  - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+    
+deploy_staging:
+  stage: deploy
+  environment:
+    name: staging
+    url: example.com
+  script:
+    - ssh abid@159.89.163.228 "cd /home/abid/gitlab-ci-practice && git checkout main && git pull origin main && exit"
+  only:
+    - main
+
+

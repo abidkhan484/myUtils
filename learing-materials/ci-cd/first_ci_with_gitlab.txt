@@ -1,0 +1,6 @@
+
+1) https://docs.gitlab.com/ee/ci/ssh_keys/
+2) https://docs.gitlab.com/ee/ci/quick_start/
+3) https://gitlab.com/gitlab-examples/ssh-private-key
+
+
