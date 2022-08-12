@@ -17,8 +17,8 @@ deploy_staging:
     name: staging
     url: example.com
   script:
-    - ssh abid@159.89.163.228 "cd /home/abid/gitlab-ci-practice && git checkout main && git pull origin main && exit"
+    - ssh $USER@SERVER_IP "cd $PATH_OF_THE_APPLICATION && git checkout $BRANCH_NAME && git pull origin $BRANCH_NAME && exit"
   only:
-    - main
+    - $BRANCH_NAME
 
 
