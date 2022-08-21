@@ -1,0 +1,6 @@
+1) How to switch the branch name that will trigger CI in Gitlab?
+  - It can be updated through gitlab ci yml where each of the job will trigger using only flag.
+	Ref: https://docs.gitlab.com/ee/ci/jobs/job_control.html#rules-examples
+  - This can update through the Gitlab dashboard by changing variable as well as the branch name in the Editor inside CI/CD menu.
+
+
